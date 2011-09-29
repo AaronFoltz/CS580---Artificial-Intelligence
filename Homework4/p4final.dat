@@ -1,0 +1,31 @@
+;; This is the 5x4 Bird House  puzzle.
+
+(Birds
+
+  (features
+    (pet (canary cockatoo myna parakeet parrot))
+    (first_name (jay martin mavis polly robin))
+    (last_name (crane finch hawk heron raven))
+    (street_name (birdsall downs fowler poltrecci winger))
+    )
+
+  (defs
+	(isa female (mavis polly robin))
+	)
+
+  (constraints
+
+;; Sentence 1
+  ; polly does not own the parakeet or the parrot
+	(iffn (first_name polly) (pet parakeet parrot))
+  ; ms. heron is not polly
+	(iffn (last_name heron) (first_name polly))
+  ; ms. heron is a female
+	(iff (last_name heron) (first_name female))
+  ; ms. heron and polly do not live on winger
+	(iffn (last_name heron) (street_name winger))
+	(iffn (first_name polly) (street_name winger))
+  ; either the parakeet or the parrot lives on winger
+  	(iff (pet parakeet parrot) (street_name winger))
+  ; ms. heron owns either the parakeet or the parrot
+  	(iff (last_name heron) (pet parakeet parrot))

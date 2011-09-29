@@ -1,0 +1,54 @@
+;
+; p4test.dat
+;
+
+; Lucky Charms Puzzle
+
+(Baseball_players
+
+    (features
+	(name  (Blacket Bluet Browning Greenfield Whitehall))
+	(charm (clover penny rabbit_foot ribbon silver_dollar))
+	(position (center_field first_base right_field shortstop third_base))
+       )
+
+    (defs
+        (isa outfielder (center_field right_field))
+        (isa infielder  (first_base shortstop third_base))
+        (isa coin       (penny silver_dollar))
+	)
+
+    (constraints
+	; sentence 1
+	(iffn (name Browning) (charm coin))
+	(iffn (position outfielder) (charm coin))
+  	(iffn (name Browning) (position outfielder))
+
+	; Sentence 2
+	(iffn (name Bluet) (position outfielder))
+
+	; Sentence 3
+	(iff  (name Greenfield) (position outfielder))
+	(iff  (name Whitehall)  (position infielder))
+	(iffn (name Whitehall)  (position first_base))
+	(iffn (name Greenfield Whitehall Blacket) (charm clover penny))
+
+	; Sentence 4
+	(iffn (name Blacket Bluet) (position first_base third_base))
+	(iffn (name Blacket Bluet) (charm ribbon))
+
+	; Sentence 5
+	(iffn (position center_field) (charm rabbit_foot))
+	)
+    )
+
+
+
+
+
+
+
+
+
+
+
