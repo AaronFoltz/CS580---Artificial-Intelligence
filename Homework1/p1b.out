@@ -1,0 +1,30 @@
+
+CL-USER 1 > (p1b)
+
+Processing: (WIDGETS ((COLOR (RED BLUE)) (AGE (1 2))))
+
+Solving a 2 object 2 feature problem:
+  Feature names: (COLOR AGE)
+  Feature values: ((RED BLUE) (1 2))
+  Solutions:
+Processing: (GADGETS ((COLOR (RED BLUE)) (AGE (1 2)) (SHAPE (ROUND SQUARE))))
+
+Solving a 2 object 3 feature problem:
+  Feature names: (COLOR AGE SHAPE)
+  Feature values: ((RED BLUE) (1 2) (ROUND SQUARE))
+  Solutions:
+Processing: (WUZNETS ((COLOR (RED BLUE GREEN)) (AGE (1 2 3))))
+
+Solving a 3 object 2 feature problem:
+  Feature names: (COLOR AGE)
+  Feature values: ((RED BLUE GREEN) (1 2 3))
+  Solutions:
+Processing: (DINGBATS ((COLOR (RED BLUE GREEN)) (AGE (1 2 3)) (SHAPE (ROUND SQUARE OVAL))))
+
+Solving a 3 object 3 feature problem:
+  Feature names: (COLOR AGE SHAPE)
+  Feature values: ((RED BLUE GREEN) (1 2 3) (ROUND SQUARE OVAL))
+  Solutions:
+***ALL_DONE***
+
+CL-USER 2 > 

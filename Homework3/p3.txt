@@ -1,0 +1,54 @@
+
+
+
+CS 580											Due: September 28, 2011
+Fall 2011
+De Jong				
+						HW#3
+
+
+You are to extend your HW2 code (or mine) to handle a second type of constraint that expresses positive constraint knowledge such as "Green plays either center field or right field":
+
+	  ( IFF (NAME GREEN)  (POSITION CF RF) )
+
+Your code must now be extended to solve puzzles that include constraint knowledge of both types.  For example:
+
+(Widgets			; name of puzzle objects
+  (features			; list of features and feature values
+    (name (Wid1 Wid2))
+    (size (small medium))
+    (color (red green))
+    )
+  (constraints                  ; list of constraints to be satisfied
+    ( IFF (name Wid1)  (size medium) )
+    ( IFFN (color red) (name Wid1) )
+    )
+  )
+
+The simplest approach is to observe that simple IFFs, when read in, can be easily converted to a logically equivalent IFFNs.  For example, in the Widget puzzle above (IFF (name Wid1)  (size medium)) is equivalent to (IFFN (name Wid1)  (size small)).  However, more complicated IFFs like (IFF (NAME Green White) (POSITION CF RF)) are used to express things like "either Green or White is an outfielder" and not as easily converted to equivalent IFFNs.  Convince yourself that, as long as one clause of an IFF has a single feature value, the simple conversion works.  Restrict your puzzle descriptions to these simpler IFFs.
+
+
+Requirements:
+
+1. You are to capture the output of a Lisp session in which you successfully load and execute your code on p3test.dat.
+
+2. Once that is working, you are to capture output from using p3final.dat.  First, convert the HW2 IFFN-only Baseball puzzle description to one that uses IFFs where appropriate and solve it.  Then, construct a puzzle description for the Birdhouse puzzle using both IFFs and IFFNs where appropriate, and solve it.
+
+3. You are to submit your homework as a SINGLE email to tsaha@masonlive.gmu.edu formatted in the following way:
+  - the subject field of the email should read:  CS580 HW#3 De Jong
+  - the content of the email should be:
+        - your name
+        - CS580 Fall 2011
+        - De Jong
+        - Homework #3
+
+        (A brief report summarizing exactly where you are: what works, doesn't work, problems, etc.)
+
+  - attach to this message 3 separate files:
+        - a listing of your program
+        - a listing of the output produced on p3test.dat
+        - a listing of your p3final.dat file
+        - a listing of the output produced on p3final.dat
+
+As a safety precaution, always cc yourself when you submit homework this way and keep it around until it has been graded and returned.
+

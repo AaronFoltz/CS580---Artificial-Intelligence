@@ -1,0 +1,21 @@
+CS 580
+Fall 2011
+De Jong
+
+					HW1 Hints
+
+
+Develop your Lisp code in small incremental steps.  Here's the way I did it.
+
+p1a.lsp: I took p1skel.lsp and replaced the p1skel function that hard codes puzzle descriptions with the example HW0 Lisp code we discussed in class that opens a file, reads and echoes s-expressions from the file, and then closes it.  By having it open p1.dat, I was able to produce what you see in p1a.out.
+
+p1b.lsp: The s-expressions in p1.dat are list structures representing puzzle descriptions.  They need to be parsed to extract feature names and feature values.  This is easily done using basic Lisp functions like car, cdr, setf, dolist, etc.  Printing out the extracted elements verifies this is working (see p1b.out).
+
+p1c.lsp: The extracted pieces can now be used to invoke the generator:
+
+     (solve feature_names feature_values)
+
+and should produce exactly the same output as p1skel.lsp.
+
+p1soln.lsp: Add some code to the state space generator to suppress printing after the first 20 solutions have been generated.  Edit p1.dat and uncomment the baseball puzzle description.  Run your p1soln.lsp on p1.dat (see p1soln.out)
+

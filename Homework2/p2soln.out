@@ -1,0 +1,226 @@
+Script started on Sun Sep 18 17:06:16 2011
+[?1034hbash-3.2$ sbcl
+This is SBCL 1.0.51.0-a546163, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (load "p2.lsp")
+
+
+; file: /Users/aaron/Desktop/Dropbox/CS/CS580/Homework/Homework2/p2.lsp
+; in: DEFUN P2
+;     (PROCESS PUZZLE)
+; 
+; caught STYLE-WARNING:
+;   undefined function: PROCESS
+; 
+; compilation unit finished
+;   Undefined function:
+;     PROCESS
+;   caught 1 STYLE-WARNING condition
+
+; file: /Users/aaron/Desktop/Dropbox/CS/CS580/Homework/Homework2/p2.lsp
+; in: DEFUN PROCESS
+;     (LET (FEAT_NAMES FEAT_VALS CONSTRAINTS (FEAT_COUNT 0))
+;       (FORMAT T "~%Processing: ~A~%" PUZZLE)
+;       (SETF FEAT_LIST (CDADR PUZZLE))
+;       (DOLIST (FEAT FEAT_LIST)
+;         (SET (CAR FEAT) FEAT_COUNT)
+;         (INCF FEAT_COUNT)
+;         (SETF FEAT_NAMES (CONS # FEAT_NAMES))
+;         (SETF FEAT_VALS (CONS # FEAT_VALS)))
+;       (SETF FEAT_NAMES (REVERSE FEAT_NAMES))
+;       (SETF FEAT_VALS (REVERSE FEAT_VALS))
+;       (SETF CONSTRAINT_LIST (CDADDR PUZZLE))
+;       (SOLVE FEAT_NAMES FEAT_VALS))
+; 
+; caught STYLE-WARNING:
+;   The variable CONSTRAINTS is defined but never used.
+
+; in: DEFUN PROCESS
+;     (SETF CONSTRAINT_LIST (CDADDR PUZZLE))
+; ==>
+;   (SETQ CONSTRAINT_LIST (CDADDR PUZZLE))
+; 
+; caught WARNING:
+;   undefined variable: CONSTRAINT_LIST
+
+;     (SETF FEAT_LIST (CDADR PUZZLE))
+; ==>
+;   (SETQ FEAT_LIST (CDADR PUZZLE))
+; 
+; caught WARNING:
+;   undefined variable: FEAT_LIST
+
+;     (SOLVE FEAT_NAMES FEAT_VALS)
+; 
+; caught STYLE-WARNING:
+;   undefined function: SOLVE
+; 
+; compilation unit finished
+;   Undefined function:
+;     SOLVE
+;   Undefined variables:
+;     CONSTRAINT_LIST FEAT_LIST
+;   caught 2 WARNING conditions
+;   caught 2 STYLE-WARNING conditions
+
+; in: DEFUN SOLVE
+;     (SETF *SOLN_COUNT* 0
+;           *NODE_COUNT* 0
+;           *PRINT_MAX* 20)
+; --> PROGN SETF 
+; ==>
+;   (SETQ *NODE_COUNT* 0)
+; 
+; caught WARNING:
+;   undefined variable: *NODE_COUNT*
+
+; ==>
+;   (SETQ *PRINT_MAX* 20)
+; 
+; caught WARNING:
+;   undefined variable: *PRINT_MAX*
+
+; ==>
+;   (SETQ *SOLN_COUNT* 0)
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+
+;     (GEN_STATES PUZZLE_ARRAY (CAR UNUSED_SYMBOLS) (CDR UNUSED_SYMBOLS) 0 1)
+; 
+; caught STYLE-WARNING:
+;   undefined function: GEN_STATES
+
+;     (SETF PUZZLE_ARRAY (MAKE-ARRAY (LIST OBJECT_COUNT FEATURE_COUNT)))
+; ==>
+;   (SETQ PUZZLE_ARRAY (MAKE-ARRAY (LIST OBJECT_COUNT FEATURE_COUNT)))
+; 
+; caught WARNING:
+;   undefined variable: PUZZLE_ARRAY
+; 
+; compilation unit finished
+;   Undefined function:
+;     GEN_STATES
+;   Undefined variables:
+;     *NODE_COUNT* *PRINT_MAX* *SOLN_COUNT* PUZZLE_ARRAY
+;   caught 4 WARNING conditions
+;   caught 1 STYLE-WARNING condition
+
+; in: DEFUN GEN_STATES
+;     (SETQ *SOLN_COUNT* (1+ *SOLN_COUNT*))
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+
+;     (CHECK_CONSTRAINTS PUZZLE_ARRAY FEAT_ROW FEAT_COL FVAL)
+; 
+; caught STYLE-WARNING:
+;   undefined function: CHECK_CONSTRAINTS
+
+;     (PRINT_SOLUTION PUZZLE_ARRAY)
+; 
+; caught STYLE-WARNING:
+;   undefined function: PRINT_SOLUTION
+; 
+; compilation unit finished
+;   Undefined functions:
+;     CHECK_CONSTRAINTS PRINT_SOLUTION
+;   Undefined variable:
+;     *SOLN_COUNT*
+;   caught 1 WARNING condition
+;   caught 2 STYLE-WARNING conditions
+
+; in: DEFUN CHECK_CONSTRAINTS
+;     (SETF *NODE_COUNT* (1+ *NODE_COUNT*))
+; ==>
+;   (SETQ *NODE_COUNT* (1+ *NODE_COUNT*))
+; 
+; caught WARNING:
+;   undefined variable: *NODE_COUNT*
+
+;     (DOLIST (CONSTRAINT CONSTRAINT_LIST)
+;       (COND
+;        ((MEMBER VAL (REST #))
+;         (IF (MEMBER # #)
+;             (PROGN #)))
+;        ((MEMBER VAL (REST #))
+;         (IF (MEMBER # #)
+;             (PROGN #)))))
+; --> BLOCK 
+; ==>
+;   (LET ((#:N-LIST0 CONSTRAINT_LIST))
+;     (TAGBODY
+;      #:START1
+;       (UNLESS (ENDP #:N-LIST0)
+;         (LET* (#)
+;           (SETQ #)
+;           (TAGBODY #))
+;         (GO #:START1))))
+; 
+; caught WARNING:
+;   undefined variable: CONSTRAINT_LIST
+; 
+; compilation unit finished
+;   Undefined variables:
+;     *NODE_COUNT* CONSTRAINT_LIST
+;   caught 2 WARNING conditions
+
+; in: DEFUN PRINT_SOLUTION
+;     (< *SOLN_COUNT* *PRINT_MAX*)
+; 
+; caught WARNING:
+;   undefined variable: *PRINT_MAX*
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+; 
+; compilation unit finished
+;   Undefined variables:
+;     *PRINT_MAX* *SOLN_COUNT*
+;   caught 2 WARNING conditions
+
+T
+* (p2)
+
+Processing: (BASEBALL_PLAYERS
+             (FEATURES (NAME (BLACKET BLUET BROWNING GREENFIELD WHITEHALL))
+              (CHARM (CLOVER PENNY RABBIT_FOOT RIBBON SILVER_DOLLAR))
+              (POSITION
+               (CENTER_FIELD FIRST_BASE RIGHT_FIELD SHORTSTOP THIRD_BASE)))
+             (CONSTRAINTS (IFFN (NAME BROWNING) (CHARM PENNY SILVER_DOLLAR))
+              (IFFN (POSITION CENTER_FIELD RIGHT_FIELD)
+               (CHARM PENNY SILVER_DOLLAR))
+              (IFFN (NAME BROWNING) (POSITION CENTER_FIELD RIGHT_FIELD))
+              (IFFN (NAME BLUET) (POSITION CENTER_FIELD RIGHT_FIELD))
+              (IFFN (NAME GREENFIELD)
+               (POSITION FIRST_BASE SHORTSTOP THIRD_BASE))
+              (IFFN (NAME GREENFIELD) (CHARM PENNY SILVER_DOLLAR))
+              (IFFN (NAME WHITEHALL)
+               (POSITION FIRST_BASE CENTER_FIELD RIGHT_FIELD))
+              (IFFN (NAME GREENFIELD WHITEHALL BLACKET) (CHARM CLOVER PENNY))
+              (IFFN (NAME BLACKET BLUET) (POSITION FIRST_BASE THIRD_BASE))
+              (IFFN (NAME BLACKET BLUET) (CHARM RIBBON))
+              (IFFN (POSITION CENTER_FIELD) (CHARM RABBIT_FOOT))))
+
+Solving a 5 object 3 feature problem:
+  Feature names: (NAME CHARM POSITION)
+  Feature values: ((BLACKET BLUET BROWNING GREENFIELD WHITEHALL)
+                   (CLOVER PENNY RABBIT_FOOT RIBBON SILVER_DOLLAR)
+                   (CENTER_FIELD FIRST_BASE RIGHT_FIELD SHORTSTOP THIRD_BASE))
+  Solutions:
+     #2A((BLACKET RABBIT_FOOT RIGHT_FIELD)
+         (BLUET PENNY SHORTSTOP)
+         (BROWNING CLOVER FIRST_BASE)
+         (GREENFIELD RIBBON CENTER_FIELD)
+         (WHITEHALL SILVER_DOLLAR THIRD_BASE))
+  Solution count: 1, Node count: 92
+***ALL_DONE***
+* (quit)
+bash-3.2$ exit
+
+Script done on Sun Sep 18 17:06:30 2011

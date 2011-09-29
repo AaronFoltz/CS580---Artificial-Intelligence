@@ -1,0 +1,5 @@
+Recall that the rows of the puzzle array correspond to the objects of the puzzle (e.g., widgets, baseball players, etc.), and the columns correspond to the features of objects (color, size, charms, etc.).  Note that the IFFNs specify constraints on what values can be assigned to two features of the same object, i.e., constraints on the values within a row.   So, obtaining the column number of a particular feature is a key part of constraint checking.  Here's a possible way.
+
+Suppose I was clever enough to assign column numbers to feature names while parsing the puzzle, i.e. the first feature name, say COLOR, is assigned index 0, and so on.  Then, later, during constraint checking something if the form L = (IFFN (COLOR RED BLUE) (SIZE SMALL)), then (eval (first (second L)) produces the correct column number.  Now I have the necessary row and column numbers to ask:  (member (aref puz_array row col) (rest (second L))).
+
+For HW2, concentrate more on correctly checking constraints and less on the efficiency of the constraint checking code.

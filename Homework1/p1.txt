@@ -1,0 +1,50 @@
+
+
+
+CS 580									Due: September 14, 2011
+Fall 2011
+De Jong				Lisp Homework #1
+
+
+You are to become familiar with the basic symbol manipulation and list processing features of Lisp by making changes to the Lisp program p1skel.lsp.  This program implements an exhaustive state space generator for "slot filler" constraint satisfaction problems (of which logic puzzles are an example).  This program illustrates some of the power of Lisp.  You should attempt to understand it!
+
+As it currently stands, specific slot-filler problems are hard-coded into the Lisp program.  You are to generalize this program so that it can read problem descriptions from files, echo them in human-readable form, and invoke the generator on each.  
+
+This means that we must invent a simple input file format for reading in a series of problems.  Since we're using Lisp, the simplest approach is to have the input file contain a series of s-expressions, one for each problem.  For HW1 each s-expression will have the form:
+
+ (objects          ; specifying the class name of the objects
+    (              ; a list of feature names and their legal values
+       (feat1_name (feat1_value_1 feat1_value_2 ... feat1_value_m) )
+       (feat2_name (feat2_value_1 feat2_value_2 ... feat2_value_m) )
+       ...
+       (featn_name (featn_value_1 featn_value_2 ... featn_value_m) )
+       )
+    )
+
+So, for example, the baseball puzzle would be specified as:
+
+ (Baseball_Players
+	(  ( name (Bluett ...))
+	   ( position (Left_field ...))
+	   ( charm (Rabbit_foot ... ))
+	   )
+     )
+
+Develop and debug your program incrementally using the data set p1.dat.  If you are having difficulty, read the p1-hints.txt file and follow the suggestions given there.
+
+Once you have it working on p1.dat as given, add an option (like there was in HW0) to suppress much of the printing.  Then uncomment the Baseball puzzle (a 5 object, 3 feature problem) at the end of p1.dat and run your program on the entire set.
+
+You are to submit your homework as a SINGLE email to tsaha@masonlive.gmu.edu formatted in the following way:
+  - the subject field of the email should read:  CS580 HW#1 De Jong
+  - the content of the email should be:
+	- your name
+	- CS580 Fall 2011
+	- De Jong
+	- Homework #1
+
+        (A brief report summarizing exactly where you are: what works, doesn't work, problems, etc.)
+
+  - attach to this message 3 separate files: 
+	- a listing of your program
+	- a listing of the data file
+	- a listing of the output produced

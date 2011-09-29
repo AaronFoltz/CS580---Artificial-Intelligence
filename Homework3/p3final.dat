@@ -1,0 +1,95 @@
+; Aaron Foltz
+; Homework 3
+; p3final.dat
+; 
+
+; 5 objects, 3 features
+
+(Baseball_players
+    (features
+		(name  (Blacket Bluet Browning Greenfield Whitehall))
+		(charm (clover penny rabbit_foot ribbon silver_dollar))
+		(position (center_field first_base right_field shortstop third_base))
+    )
+    (constraints
+	; Sentence 1
+	(iffn (name Browning) (charm penny silver_dollar))
+	(iffn (position center_field right_field) (charm penny silver_dollar))
+	(iffn (name Browning) (position center_field right_field))
+
+	; Sentence 2
+	(iffn (name Bluet) (position center_field right_field))
+
+	; Sentence 3
+	(iff  (name Greenfield) (position center_field right_field))
+	; Derived from Sentence 1
+	(iffn (name Greenfield) (charm penny silver_dollar))
+	
+	; Changed, this one is more positive
+	(iff (name Whitehall) (position shortstop third_base))
+	;(iffn (name Whitehall) (position first_base center_field right_field))
+	
+	(iffn (name Greenfield Whitehall Blacket) (charm clover penny))
+
+	; Sentence 4
+	(iffn (name Blacket Bluet) (position first_base third_base))
+	(iffn (name Blacket Bluet) (charm ribbon))
+
+	; Sentence 5
+	(iffn (position center_field) (charm rabbit_foot))
+	)
+)
+
+; 5 Objects, 4 features
+(Bird_houses
+	(features
+		(bird (canary cockatoo myna parakeet parrot))
+		(last_name (Crane Finch Hawk Heron Raven))
+		(first_name (Jay Martin Mavis Polly Robin))
+		(street (Birdsall_Street Downs_Street Fowler_Avenue Poltrecci_Avenue Winger_Street))
+	)
+	(constraints
+	; Sentence 1
+		(iffn (first_name Polly) (bird parakeet parrot))
+		(iff (bird parakeet parrot) (last_name Heron))
+		(iff (bird parakeet parrot) (street Winger_Street))
+		
+		(iff (last_name Heron) (first_name Mavis Polly Robin))
+		(iffn (first_name Polly) (last_name Heron))
+		(iffn (first_name Polly) (street Winger_Street))
+		
+	; Sentence 2
+		(iffn (first_name Martin) (last_name Crane))
+		(iffn (first_name Jay Martin) (street Birdsall_Street Fowler_Avenue))
+		(iffn (last_name Crane) (street Birdsall_Street Fowler_Avenue))
+		(iff (last_name Crane) (first_name Jay))
+		
+	; Sentence 3
+		(iffn (first_name Robin) (bird parakeet myna))
+		(iffn (last_name Heron) (bird parakeet myna))
+		(iff (last_name Heron) (bird parrot))
+		(iffn (street Downs_Street) (bird parakeet myna))
+		
+		(iff (last_name Heron) (first_name Mavis Polly))
+		(iff (street Downs_Street) (first_name Mavis Polly))
+		
+		(iffn (first_name Robin) (street Downs_Street))
+		(iffn (last_name Heron) (street Downs_Street))
+		
+	; Sentence 4
+		(iffn (last_name Finch Hawk) (street Poltrecci_Avenue Birdsall_Street))
+		(iffn (bird canary) (street Poltrecci_Avenue Birdsall_Street))
+		
+		(iff (last_name Finch) (first_name Mavis Polly Robin))
+		(iff (last_name Hawk) (first_name Martin))
+		
+		(iffn (last_name Finch) (bird canary))
+		(iffn (last_name Hawk) (bird canary))
+		
+	; Sentence 5
+		(iffn (bird canary) (street Fowler_Avenue))
+
+	)
+)
+
+

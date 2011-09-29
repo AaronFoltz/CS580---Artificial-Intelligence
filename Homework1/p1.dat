@@ -1,0 +1,43 @@
+;
+; p1.dat
+;
+
+(widgets      ; 2 objects, 2 features
+  (
+    ( name (Wid1 Wid2) )
+    ( color   (red green) )
+    )
+  )
+
+(gadgets      ; 2 objects, 3 features
+  (
+    ( color (red blue) )
+    ( age   (1 2) )
+    ( shape  (round square) )
+    )
+  )
+
+(wuznets      ; 3 objects, 2 features
+  (
+    ( color (red blue green) )
+    ( age   (1 2 3) )
+    )
+  )
+
+(dingbats      ; 3 objects, 3 features
+  (
+    ( color (red blue green) )
+    ( age   (1 2 3) )
+    (shape  (round square oval))
+    )
+  )
+
+
+( baseball_players    ; 5 objects, 3 features
+  (
+    (name  (blk blu grn brn wht))
+    (posit (cf rf ss sb tb))
+    (charm (coin foot doll shoe ring))
+    )
+  )
+

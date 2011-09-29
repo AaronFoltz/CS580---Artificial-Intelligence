@@ -1,0 +1,214 @@
+Script started on Mon Sep 12 09:46:42 2011
+[?1034hbash-3.2$ sbcl
+This is SBCL 1.0.51.0-a546163, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (load "p1soln.lsp")
+
+
+; file: /Users/aaron/Desktop/Dropbox/CS/CS580/Homework/Homework1/p1soln.lsp
+; in: DEFUN P1
+;     (SETF *PRINT_MAX* 20)
+; ==>
+;   (SETQ *PRINT_MAX* 20)
+; 
+; caught WARNING:
+;   undefined variable: *PRINT_MAX*
+
+;     (SETF DAT_FILE (OPEN "p1.dat" :DIRECTION :INPUT))
+; ==>
+;   (SETQ DAT_FILE (OPEN "p1.dat" :DIRECTION :INPUT))
+; 
+; caught WARNING:
+;   undefined variable: DAT_FILE
+
+;     (SETF FEATURE_LIST (CADR PROBLEM_LIST))
+; ==>
+;   (SETQ FEATURE_LIST (CADR PROBLEM_LIST))
+; 
+; caught WARNING:
+;   undefined variable: FEATURE_LIST
+
+;     (SETQ PROBLEM_LIST (READ DAT_FILE NIL NIL))
+; 
+; caught WARNING:
+;   undefined variable: PROBLEM_LIST
+
+;     (SOLVE (REVERSE FEATURE_NAMES) (REVERSE FEATURE_VALUES))
+; 
+; caught STYLE-WARNING:
+;   undefined function: SOLVE
+; 
+; compilation unit finished
+;   Undefined function:
+;     SOLVE
+;   Undefined variables:
+;     *PRINT_MAX* DAT_FILE FEATURE_LIST PROBLEM_LIST
+;   caught 4 WARNING conditions
+;   caught 1 STYLE-WARNING condition
+
+; in: DEFUN SOLVE
+;     (SETF *SOLN_COUNT* 0
+;           *NODE_COUNT* 0)
+; --> PROGN SETF 
+; ==>
+;   (SETQ *NODE_COUNT* 0)
+; 
+; caught WARNING:
+;   undefined variable: *NODE_COUNT*
+
+; ==>
+;   (SETQ *SOLN_COUNT* 0)
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+
+;     (GEN_STATES PUZZLE_ARRAY (CAR UNUSED_SYMBOLS) (CDR UNUSED_SYMBOLS) 0 1)
+; 
+; caught STYLE-WARNING:
+;   undefined function: GEN_STATES
+; 
+; compilation unit finished
+;   Undefined function:
+;     GEN_STATES
+;   Undefined variables:
+;     *NODE_COUNT* *SOLN_COUNT*
+;   caught 2 WARNING conditions
+;   caught 1 STYLE-WARNING condition
+
+; in: DEFUN GEN_STATES
+;     (SETF (AREF PUZZLE_ARRAY FEAT_ROW FEAT_COL) FVAL
+;           *NODE_COUNT* (1+ *NODE_COUNT*))
+; --> PROGN SETF 
+; ==>
+;   (SETQ *NODE_COUNT* (1+ *NODE_COUNT*))
+; 
+; caught WARNING:
+;   undefined variable: *NODE_COUNT*
+
+;     (< *SOLN_COUNT* *PRINT_MAX*)
+; 
+; caught WARNING:
+;   undefined variable: *PRINT_MAX*
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+
+;     (PRINT_SOLUTION PUZZLE_ARRAY)
+; 
+; caught STYLE-WARNING:
+;   undefined function: PRINT_SOLUTION
+; 
+; compilation unit finished
+;   Undefined function:
+;     PRINT_SOLUTION
+;   Undefined variables:
+;     *NODE_COUNT* *PRINT_MAX* *SOLN_COUNT*
+;   caught 3 WARNING conditions
+;   caught 1 STYLE-WARNING condition
+
+T
+* (p1)
+
+Processing: (WIDGETS ((COLOR (RED BLUE)) (AGE (1 2))))
+Solving a 2 object 2 feature problem:
+  Feature names: (COLOR AGE)
+  Feature values: ((RED BLUE) (1 2))
+  Solutions:
+     #2A((RED 1) (BLUE 2))
+     #2A((RED 2) (BLUE 1))
+  Solution count: 2, Node count: 4
+
+Processing: (GADGETS ((COLOR (RED BLUE)) (AGE (1 2)) (SHAPE (ROUND SQUARE))))
+Solving a 2 object 3 feature problem:
+  Feature names: (COLOR AGE SHAPE)
+  Feature values: ((RED BLUE) (1 2) (ROUND SQUARE))
+  Solutions:
+     #2A((RED 1 ROUND) (BLUE 2 SQUARE))
+     #2A((RED 1 SQUARE) (BLUE 2 ROUND))
+     #2A((RED 2 ROUND) (BLUE 1 SQUARE))
+     #2A((RED 2 SQUARE) (BLUE 1 ROUND))
+  Solution count: 4, Node count: 12
+
+Processing: (WUZNETS ((COLOR (RED BLUE GREEN)) (AGE (1 2 3))))
+Solving a 3 object 2 feature problem:
+  Feature names: (COLOR AGE)
+  Feature values: ((RED BLUE GREEN) (1 2 3))
+  Solutions:
+     #2A((RED 1) (BLUE 2) (GREEN 3))
+     #2A((RED 1) (BLUE 3) (GREEN 2))
+     #2A((RED 2) (BLUE 1) (GREEN 3))
+     #2A((RED 2) (BLUE 3) (GREEN 1))
+     #2A((RED 3) (BLUE 1) (GREEN 2))
+     #2A((RED 3) (BLUE 2) (GREEN 1))
+  Solution count: 6, Node count: 15
+
+Processing: (DINGBATS
+             ((COLOR (RED BLUE GREEN)) (AGE (1 2 3))
+              (SHAPE (ROUND SQUARE OVAL))))
+Solving a 3 object 3 feature problem:
+  Feature names: (COLOR AGE SHAPE)
+  Feature values: ((RED BLUE GREEN) (1 2 3) (ROUND SQUARE OVAL))
+  Solutions:
+     #2A((RED 1 ROUND) (BLUE 2 SQUARE) (GREEN 3 OVAL))
+     #2A((RED 1 ROUND) (BLUE 2 OVAL) (GREEN 3 SQUARE))
+     #2A((RED 1 SQUARE) (BLUE 2 ROUND) (GREEN 3 OVAL))
+     #2A((RED 1 SQUARE) (BLUE 2 OVAL) (GREEN 3 ROUND))
+     #2A((RED 1 OVAL) (BLUE 2 ROUND) (GREEN 3 SQUARE))
+     #2A((RED 1 OVAL) (BLUE 2 SQUARE) (GREEN 3 ROUND))
+     #2A((RED 1 ROUND) (BLUE 3 SQUARE) (GREEN 2 OVAL))
+     #2A((RED 1 ROUND) (BLUE 3 OVAL) (GREEN 2 SQUARE))
+     #2A((RED 1 SQUARE) (BLUE 3 ROUND) (GREEN 2 OVAL))
+     #2A((RED 1 SQUARE) (BLUE 3 OVAL) (GREEN 2 ROUND))
+     #2A((RED 1 OVAL) (BLUE 3 ROUND) (GREEN 2 SQUARE))
+     #2A((RED 1 OVAL) (BLUE 3 SQUARE) (GREEN 2 ROUND))
+     #2A((RED 2 ROUND) (BLUE 1 SQUARE) (GREEN 3 OVAL))
+     #2A((RED 2 ROUND) (BLUE 1 OVAL) (GREEN 3 SQUARE))
+     #2A((RED 2 SQUARE) (BLUE 1 ROUND) (GREEN 3 OVAL))
+     #2A((RED 2 SQUARE) (BLUE 1 OVAL) (GREEN 3 ROUND))
+     #2A((RED 2 OVAL) (BLUE 1 ROUND) (GREEN 3 SQUARE))
+     #2A((RED 2 OVAL) (BLUE 1 SQUARE) (GREEN 3 ROUND))
+     #2A((RED 2 ROUND) (BLUE 3 SQUARE) (GREEN 1 OVAL))
+     #2A((RED 2 ROUND) (BLUE 3 OVAL) (GREEN 1 SQUARE))
+       Suppressing printing ...
+  Solution count: 36, Node count: 105
+
+Processing: (BASEBALL_PLAYERS
+             ((NAME (BLK BLU GRN BRN WHT)) (POSIT (CF RF SS SB TB))
+              (CHARM (COIN FOOT DOLL SHOE RING))))
+Solving a 5 object 3 feature problem:
+  Feature names: (NAME POSIT CHARM)
+  Feature values: ((BLK BLU GRN BRN WHT) (CF RF SS SB TB)
+                   (COIN FOOT DOLL SHOE RING))
+  Solutions:
+     #2A((BLK CF COIN) (BLU RF FOOT) (GRN SS DOLL) (BRN SB SHOE) (WHT TB RING))
+     #2A((BLK CF COIN) (BLU RF FOOT) (GRN SS DOLL) (BRN SB RING) (WHT TB SHOE))
+     #2A((BLK CF COIN) (BLU RF FOOT) (GRN SS SHOE) (BRN SB DOLL) (WHT TB RING))
+     #2A((BLK CF COIN) (BLU RF FOOT) (GRN SS SHOE) (BRN SB RING) (WHT TB DOLL))
+     #2A((BLK CF COIN) (BLU RF FOOT) (GRN SS RING) (BRN SB DOLL) (WHT TB SHOE))
+     #2A((BLK CF COIN) (BLU RF FOOT) (GRN SS RING) (BRN SB SHOE) (WHT TB DOLL))
+     #2A((BLK CF COIN) (BLU RF DOLL) (GRN SS FOOT) (BRN SB SHOE) (WHT TB RING))
+     #2A((BLK CF COIN) (BLU RF DOLL) (GRN SS FOOT) (BRN SB RING) (WHT TB SHOE))
+     #2A((BLK CF COIN) (BLU RF DOLL) (GRN SS SHOE) (BRN SB FOOT) (WHT TB RING))
+     #2A((BLK CF COIN) (BLU RF DOLL) (GRN SS SHOE) (BRN SB RING) (WHT TB FOOT))
+     #2A((BLK CF COIN) (BLU RF DOLL) (GRN SS RING) (BRN SB FOOT) (WHT TB SHOE))
+     #2A((BLK CF COIN) (BLU RF DOLL) (GRN SS RING) (BRN SB SHOE) (WHT TB FOOT))
+     #2A((BLK CF COIN) (BLU RF SHOE) (GRN SS FOOT) (BRN SB DOLL) (WHT TB RING))
+     #2A((BLK CF COIN) (BLU RF SHOE) (GRN SS FOOT) (BRN SB RING) (WHT TB DOLL))
+     #2A((BLK CF COIN) (BLU RF SHOE) (GRN SS DOLL) (BRN SB FOOT) (WHT TB RING))
+     #2A((BLK CF COIN) (BLU RF SHOE) (GRN SS DOLL) (BRN SB RING) (WHT TB FOOT))
+     #2A((BLK CF COIN) (BLU RF SHOE) (GRN SS RING) (BRN SB FOOT) (WHT TB DOLL))
+     #2A((BLK CF COIN) (BLU RF SHOE) (GRN SS RING) (BRN SB DOLL) (WHT TB FOOT))
+     #2A((BLK CF COIN) (BLU RF RING) (GRN SS FOOT) (BRN SB DOLL) (WHT TB SHOE))
+     #2A((BLK CF COIN) (BLU RF RING) (GRN SS FOOT) (BRN SB SHOE) (WHT TB DOLL))
+       Suppressing printing ...
+  Solution count: 14400, Node count: 39325
+***ALL_DONE***
+* (quit)
+bash-3.2$ exit
+
+Script done on Mon Sep 12 09:47:00 2011

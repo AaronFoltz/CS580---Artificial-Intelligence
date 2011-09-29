@@ -1,0 +1,37 @@
+;
+; test input for p3
+;
+
+; 3 objects, 2 features
+
+(Widgets
+    (features
+	(name (Wid1 Wid2 Wid3))
+	(color (red green blue))
+        )
+    (constraints
+	(iffn (color red blue) (name Wid2))
+	(iff (name Wid3) (color red))
+	)
+    )
+
+; 3 objects, 3 features
+
+(Widgets
+    (features
+	(name (Wid1 Wid2 Wid3))
+	(color (red green blue))
+	(shape (round square triangular))
+        )
+    (constraints
+	(iffn (color blue) (name Wid1 Wid2))
+	(iff  (name Wid2 Wid3) (shape round))
+	)
+    )
+
+
+
+
+
+
+

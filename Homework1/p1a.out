@@ -1,0 +1,13 @@
+
+CL-USER 11 > (p1a)
+
+Processing: (WIDGETS ((COLOR (RED BLUE)) (AGE (1 2))))
+
+Processing: (GADGETS ((COLOR (RED BLUE)) (AGE (1 2)) (SHAPE (ROUND SQUARE))))
+
+Processing: (WUZNETS ((COLOR (RED BLUE GREEN)) (AGE (1 2 3))))
+
+Processing: (DINGBATS ((COLOR (RED BLUE GREEN)) (AGE (1 2 3)) (SHAPE (ROUND SQUARE OVAL))))
+***ALL_DONE***
+
+CL-USER 12 > 

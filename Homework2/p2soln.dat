@@ -1,0 +1,35 @@
+; 5 objects, 3 features
+
+(Baseball_players
+    (features
+	(name  (Blacket Bluet Browning Greenfield Whitehall))
+	(charm (clover penny rabbit_foot ribbon silver_dollar))
+	(position (center_field first_base right_field shortstop third_base))
+       )
+    (constraints
+
+	; Sentence 1
+	(iffn (name Browning) (charm penny silver_dollar))
+	(iffn (position center_field right_field) (charm penny silver_dollar))
+	(iffn (name Browning) (position center_field right_field))
+
+	; Sentence 2
+	(iffn (name Bluet) (position center_field right_field))
+	
+	; Sentence 3
+	(iffn (name Greenfield) (position first_base shortstop third_base))
+	(iffn (name Greenfield) (charm penny silver_dollar))
+	(iffn (name Whitehall) (position first_base center_field right_field))
+	(iffn (name Greenfield Whitehall Blacket) (charm clover penny))
+	
+	
+	; Sentence 4
+	(iffn (name Blacket Bluet) (position first_base third_base))
+	(iffn (name Blacket Bluet) (charm ribbon))
+	
+	; Sentence 5
+	(iffn (position center_field) (charm rabbit_foot))
+	)
+	
+	
+    ) 

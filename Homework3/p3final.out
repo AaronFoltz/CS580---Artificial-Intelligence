@@ -1,0 +1,317 @@
+Script started on Mon Sep 26 21:38:53 2011
+[?1034hbash-3.2$ sbcl
+This is SBCL 1.0.51.0-a546163, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (load "p3.lsp")
+
+
+; file: /Users/aaron/Desktop/Dropbox/CS/CS580/Homework/Homework3/p3.lsp
+; in: DEFUN P3
+;     (PROCESS PUZZLE)
+; 
+; caught STYLE-WARNING:
+;   undefined function: PROCESS
+; 
+; compilation unit finished
+;   Undefined function:
+;     PROCESS
+;   caught 1 STYLE-WARNING condition
+
+; file: /Users/aaron/Desktop/Dropbox/CS/CS580/Homework/Homework3/p3.lsp
+; in: DEFUN PROCESS
+;     (LET ((FEATURE_LIST (SECOND PUZZLE))
+;           (CONSTRAINT_LIST (THIRD PUZZLE))
+;           FEAT_NAMES
+;           FEAT_VALS
+;           PUZZLE_ERROR
+;           (FEAT_COL 0))
+;       (FORMAT T "~%Puzzle name: ~A" (FIRST PUZZLE))
+;       (COND
+;        ((EQ (FIRST FEATURE_LIST) 'FEATURES) (SETF *FEATURE_LIST* #)
+;         (DOLIST (ITEM *FEATURE_LIST*) (SETF #) (SET # #) (SETF #) (SETF #))
+;         (SETF FEAT_NAMES #
+;               FEAT_VALS #)
+;         (COND (# # #) (T #)))
+;        (T (FORMAT T "~%  *** Missing feature list ***"))))
+; 
+; caught STYLE-WARNING:
+;   The variable PUZZLE_ERROR is defined but never used.
+
+; in: DEFUN PROCESS
+;     (SETF *FEATURE_LIST* (CDR FEATURE_LIST))
+; ==>
+;   (SETQ *FEATURE_LIST* (CDR FEATURE_LIST))
+; 
+; caught WARNING:
+;   undefined variable: *FEATURE_LIST*
+
+;     (PROCESS_CONSTRAINTS (CDR CONSTRAINT_LIST) FEAT_VALS)
+; 
+; caught STYLE-WARNING:
+;   undefined function: PROCESS_CONSTRAINTS
+
+;     (SOLVE FEAT_NAMES FEAT_VALS)
+; 
+; caught STYLE-WARNING:
+;   undefined function: SOLVE
+; 
+; compilation unit finished
+;   Undefined functions:
+;     PROCESS_CONSTRAINTS SOLVE
+;   Undefined variable:
+;     *FEATURE_LIST*
+;   caught 1 WARNING condition
+;   caught 3 STYLE-WARNING conditions
+
+; file: /Users/aaron/Desktop/Dropbox/CS/CS580/Homework/Homework3/p3.lsp
+; in: DEFUN PROCESS_CONSTRAINTS
+;     (DEFUN PROCESS_CONSTRAINTS (CONSTRAINT_LIST FEAT_VALS)
+;       (SETF *CONSTRAINTS* NIL)
+;       (FORMAT T "~% Constraints:")
+;       (DOLIST (CONSTRAINT CONSTRAINT_LIST)
+;         (COND ((EQ # 'IFFN) (SETF #) (FORMAT T "~%   ~A" CONSTRAINT))
+;               ((EQ # 'IFF) (FORMAT T "~%   ~A" CONSTRAINT) (COND # # #))
+;               (T
+;                (FORMAT T "~%   *** Illegal constraint ignored: ~A" CONSTRAINT)))))
+; --> PROGN SB-INT:NAMED-LAMBDA 
+; ==>
+;   #'(SB-INT:NAMED-LAMBDA PROCESS_CONSTRAINTS
+;         (CONSTRAINT_LIST FEAT_VALS)
+;       (BLOCK PROCESS_CONSTRAINTS
+;         (SETF *CONSTRAINTS* NIL)
+;         (FORMAT T "~% Constraints:")
+;         (DOLIST (CONSTRAINT CONSTRAINT_LIST) (COND (# # #) (# # #) (T #)))))
+; 
+; caught STYLE-WARNING:
+;   The variable FEAT_VALS is defined but never used.
+
+; in: DEFUN PROCESS_CONSTRAINTS
+;     (SETF *CONSTRAINTS* NIL)
+; ==>
+;   (SETQ *CONSTRAINTS* NIL)
+; 
+; caught WARNING:
+;   undefined variable: *CONSTRAINTS*
+
+;     (SETF IFFN_CONSTRAINT
+;             (LIST 'IFFN (SECOND CONSTRAINT)
+;                   (CONS (FIRST #) (SET-DIFFERENCE # #))))
+; ==>
+;   (SETQ IFFN_CONSTRAINT
+;           (LIST 'IFFN (SECOND CONSTRAINT)
+;                 (CONS (FIRST #) (SET-DIFFERENCE # #))))
+; 
+; caught WARNING:
+;   undefined variable: IFFN_CONSTRAINT
+; 
+; compilation unit finished
+;   Undefined variables:
+;     *CONSTRAINTS* IFFN_CONSTRAINT
+;   caught 2 WARNING conditions
+;   caught 1 STYLE-WARNING condition
+
+; in: DEFUN SOLVE
+;     (SETF *SOLN_COUNT* 0
+;           *NODE_COUNT* 0
+;           *PRINT_MAX* 20)
+; --> PROGN SETF 
+; ==>
+;   (SETQ *NODE_COUNT* 0)
+; 
+; caught WARNING:
+;   undefined variable: *NODE_COUNT*
+
+; ==>
+;   (SETQ *PRINT_MAX* 20)
+; 
+; caught WARNING:
+;   undefined variable: *PRINT_MAX*
+
+; ==>
+;   (SETQ *SOLN_COUNT* 0)
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+
+;     (GEN_STATES PUZZLE_ARRAY (CAR UNUSED_SYMBOLS) (CDR UNUSED_SYMBOLS) 0 1)
+; 
+; caught STYLE-WARNING:
+;   undefined function: GEN_STATES
+; 
+; compilation unit finished
+;   Undefined function:
+;     GEN_STATES
+;   Undefined variables:
+;     *NODE_COUNT* *PRINT_MAX* *SOLN_COUNT*
+;   caught 3 WARNING conditions
+;   caught 1 STYLE-WARNING condition
+
+; in: DEFUN GEN_STATES
+;     (SETF *NODE_COUNT* (1+ *NODE_COUNT*))
+; ==>
+;   (SETQ *NODE_COUNT* (1+ *NODE_COUNT*))
+; 
+; caught WARNING:
+;   undefined variable: *NODE_COUNT*
+
+;     (SETQ *SOLN_COUNT* (1+ *SOLN_COUNT*))
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+
+;     (LEGAL PUZZLE_ARRAY FEAT_ROW FEAT_COL)
+; 
+; caught STYLE-WARNING:
+;   undefined function: LEGAL
+
+;     (PRINT_SOLUTION PUZZLE_ARRAY)
+; 
+; caught STYLE-WARNING:
+;   undefined function: PRINT_SOLUTION
+; 
+; compilation unit finished
+;   Undefined functions:
+;     LEGAL PRINT_SOLUTION
+;   Undefined variables:
+;     *NODE_COUNT* *SOLN_COUNT*
+;   caught 2 WARNING conditions
+;   caught 2 STYLE-WARNING conditions
+
+; in: DEFUN LEGAL
+;     (DOLIST (ITEM *CONSTRAINTS* T)
+;       (IF (CHECK_IFFN_MATCH PUZZLE_ARRAY (REST ITEM) FEAT_ROW FEAT_COL)
+;           (RETURN NIL)))
+; --> BLOCK 
+; ==>
+;   (LET ((#:N-LIST0 *CONSTRAINTS*))
+;     (TAGBODY
+;      #:START1
+;       (UNLESS (ENDP #:N-LIST0)
+;         (LET* (#)
+;           (SETQ #)
+;           (TAGBODY #))
+;         (GO #:START1))))
+; 
+; caught WARNING:
+;   undefined variable: *CONSTRAINTS*
+
+;     (CHECK_IFFN_MATCH PUZZLE_ARRAY (REST ITEM) FEAT_ROW FEAT_COL)
+; 
+; caught STYLE-WARNING:
+;   undefined function: CHECK_IFFN_MATCH
+; 
+; compilation unit finished
+;   Undefined function:
+;     CHECK_IFFN_MATCH
+;   Undefined variable:
+;     *CONSTRAINTS*
+;   caught 1 WARNING condition
+;   caught 1 STYLE-WARNING condition
+
+; in: DEFUN PRINT_SOLUTION
+;     (< *SOLN_COUNT* *PRINT_MAX*)
+; 
+; caught WARNING:
+;   undefined variable: *PRINT_MAX*
+; 
+; caught WARNING:
+;   undefined variable: *SOLN_COUNT*
+; 
+; compilation unit finished
+;   Undefined variables:
+;     *PRINT_MAX* *SOLN_COUNT*
+;   caught 2 WARNING conditions
+
+T
+* (p3)
+
+Puzzle name: BASEBALL_PLAYERS
+ Constraints:
+   (IFFN (NAME BROWNING) (CHARM PENNY SILVER_DOLLAR))
+   (IFFN (POSITION CENTER_FIELD RIGHT_FIELD) (CHARM PENNY SILVER_DOLLAR))
+   (IFFN (NAME BROWNING) (POSITION CENTER_FIELD RIGHT_FIELD))
+   (IFFN (NAME BLUET) (POSITION CENTER_FIELD RIGHT_FIELD))
+   (IFF (NAME GREENFIELD) (POSITION CENTER_FIELD RIGHT_FIELD))
+      Converted: (IFFN (NAME GREENFIELD)
+                  (POSITION THIRD_BASE SHORTSTOP FIRST_BASE))
+   (IFFN (NAME GREENFIELD) (CHARM PENNY SILVER_DOLLAR))
+   (IFF (NAME WHITEHALL) (POSITION SHORTSTOP THIRD_BASE))
+      Converted: (IFFN (NAME WHITEHALL)
+                  (POSITION RIGHT_FIELD FIRST_BASE CENTER_FIELD))
+   (IFFN (NAME GREENFIELD WHITEHALL BLACKET) (CHARM CLOVER PENNY))
+   (IFFN (NAME BLACKET BLUET) (POSITION FIRST_BASE THIRD_BASE))
+   (IFFN (NAME BLACKET BLUET) (CHARM RIBBON))
+   (IFFN (POSITION CENTER_FIELD) (CHARM RABBIT_FOOT))
+ Solving a 5 object 3 feature problem:
+  Feature names: (NAME CHARM POSITION)
+  Feature values: ((BLACKET BLUET BROWNING GREENFIELD WHITEHALL)
+                   (CLOVER PENNY RABBIT_FOOT RIBBON SILVER_DOLLAR)
+                   (CENTER_FIELD FIRST_BASE RIGHT_FIELD SHORTSTOP THIRD_BASE))
+  Solutions:
+     #2A((BLACKET RABBIT_FOOT RIGHT_FIELD)
+         (BLUET PENNY SHORTSTOP)
+         (BROWNING CLOVER FIRST_BASE)
+         (GREENFIELD RIBBON CENTER_FIELD)
+         (WHITEHALL SILVER_DOLLAR THIRD_BASE))
+  Solution count: 1, Node count: 42
+
+Puzzle name: BIRD_HOUSES
+ Constraints:
+   (IFFN (FIRST_NAME POLLY) (BIRD PARAKEET PARROT))
+   (IFF (BIRD PARAKEET PARROT) (LAST_NAME HERON))
+      Converted: (IFFN (LAST_NAME HERON) (BIRD MYNA COCKATOO CANARY))
+   (IFF (BIRD PARAKEET PARROT) (STREET WINGER_STREET))
+      Converted: (IFFN (STREET WINGER_STREET) (BIRD MYNA COCKATOO CANARY))
+   (IFF (LAST_NAME HERON) (FIRST_NAME MAVIS POLLY ROBIN))
+      Converted: (IFFN (LAST_NAME HERON) (FIRST_NAME MARTIN JAY))
+   (IFFN (FIRST_NAME POLLY) (LAST_NAME HERON))
+   (IFFN (FIRST_NAME POLLY) (STREET WINGER_STREET))
+   (IFFN (FIRST_NAME MARTIN) (LAST_NAME CRANE))
+   (IFFN (FIRST_NAME JAY MARTIN) (STREET BIRDSALL_STREET FOWLER_AVENUE))
+   (IFFN (LAST_NAME CRANE) (STREET BIRDSALL_STREET FOWLER_AVENUE))
+   (IFF (LAST_NAME CRANE) (FIRST_NAME JAY))
+      Converted: (IFFN (LAST_NAME CRANE) (FIRST_NAME ROBIN POLLY MAVIS MARTIN))
+   (IFFN (FIRST_NAME ROBIN) (BIRD PARAKEET MYNA))
+   (IFFN (LAST_NAME HERON) (BIRD PARAKEET MYNA))
+   (IFF (LAST_NAME HERON) (BIRD PARROT))
+      Converted: (IFFN (LAST_NAME HERON) (BIRD PARAKEET MYNA COCKATOO CANARY))
+   (IFFN (STREET DOWNS_STREET) (BIRD PARAKEET MYNA))
+   (IFF (LAST_NAME HERON) (FIRST_NAME MAVIS POLLY))
+      Converted: (IFFN (LAST_NAME HERON) (FIRST_NAME ROBIN MARTIN JAY))
+   (IFF (STREET DOWNS_STREET) (FIRST_NAME MAVIS POLLY))
+      Converted: (IFFN (STREET DOWNS_STREET) (FIRST_NAME ROBIN MARTIN JAY))
+   (IFFN (FIRST_NAME ROBIN) (STREET DOWNS_STREET))
+   (IFFN (LAST_NAME HERON) (STREET DOWNS_STREET))
+   (IFFN (LAST_NAME FINCH HAWK) (STREET POLTRECCI_AVENUE BIRDSALL_STREET))
+   (IFFN (BIRD CANARY) (STREET POLTRECCI_AVENUE BIRDSALL_STREET))
+   (IFF (LAST_NAME FINCH) (FIRST_NAME MAVIS POLLY ROBIN))
+      Converted: (IFFN (LAST_NAME FINCH) (FIRST_NAME MARTIN JAY))
+   (IFF (LAST_NAME HAWK) (FIRST_NAME MARTIN))
+      Converted: (IFFN (LAST_NAME HAWK) (FIRST_NAME ROBIN POLLY MAVIS JAY))
+   (IFFN (LAST_NAME FINCH) (BIRD CANARY))
+   (IFFN (LAST_NAME HAWK) (BIRD CANARY))
+   (IFFN (BIRD CANARY) (STREET FOWLER_AVENUE))
+ Solving a 5 object 4 feature problem:
+  Feature names: (BIRD LAST_NAME FIRST_NAME STREET)
+  Feature values: ((CANARY COCKATOO MYNA PARAKEET PARROT)
+                   (CRANE FINCH HAWK HERON RAVEN)
+                   (JAY MARTIN MAVIS POLLY ROBIN)
+                   (BIRDSALL_STREET DOWNS_STREET FOWLER_AVENUE POLTRECCI_AVENUE
+                    WINGER_STREET))
+  Solutions:
+     #2A((CANARY RAVEN POLLY DOWNS_STREET)
+         (COCKATOO FINCH ROBIN FOWLER_AVENUE)
+         (MYNA CRANE JAY POLTRECCI_AVENUE)
+         (PARAKEET HAWK MARTIN WINGER_STREET)
+         (PARROT HERON MAVIS BIRDSALL_STREET))
+  Solution count: 1, Node count: 248
+***ALL_DONE***
+* (quit)
+bash-3.2$ exit
+
+Script done on Mon Sep 26 21:39:10 2011

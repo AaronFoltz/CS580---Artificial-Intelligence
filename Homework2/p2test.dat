@@ -1,0 +1,94 @@
+;
+; test input for p2
+;
+
+; 2 objects, 2 features
+
+(Widgets
+    (features
+	(name (Wid1 Wid2))
+	(color (red green))
+        )
+    (constraints
+	)
+    )
+
+
+; 2 objects, 3 features
+
+(Widgets
+    (features
+	(name (Wid1 Wid2))
+	(color (red green))
+	(shape (round square))
+        )
+    (constraints
+	(iffn (color red) (name Wid2))
+	)
+    )
+
+
+; 3 objects, 2 features
+
+(Widgets
+    (features
+	(name (Wid1 Wid2 Wid3))
+	(color (red green blue))
+        )
+    (constraints
+	(iffn (color red blue) (name Wid2))
+	(iffn (name Wid3) (color red))
+	)
+    )
+
+; 3 objects, 3 features
+
+(Widgets
+    (features
+	(name (Wid1 Wid2 Wid3))
+	(color (red green blue))
+	(shape (round square oval))
+        )
+    (constraints
+	(iffn (color blue) (name Wid1 Wid2))
+	(iffn (name Wid3) (shape oval round))
+	)
+    )
+
+; 3 objects, 3 features
+
+(Widgets
+    (features
+        (name (Wid1 Wid2 Wid3))
+        (color (red green blue))
+        (shape (round square oval))
+        )
+    (constraints
+	(iffn (color blue red) (name Wid1 Wid2))
+        )
+    )
+
+
+; 5 objects, 3 features
+
+(Baseball_players
+    (features
+	(name  (Blacket Bluet Browning Greenfield Whitehall))
+	(charm (clover penny rabbit_foot ribbon silver_dollar))
+	(position (center_field first_base right_field shortstop third_base))
+       )
+    (constraints
+	; Sentence 1
+	(iffn (name Browning) (charm penny silver_dollar))
+	(iffn (position center_field right_field) (charm penny silver_dollar))
+	(iffn (name Browning) (position center_field right_field))
+
+	; Sentence 2
+	(iffn (name Bluet) (position center_field right_field))
+	)
+    )
+
+
+
+
+
