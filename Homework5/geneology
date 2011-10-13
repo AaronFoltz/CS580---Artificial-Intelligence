@@ -1,0 +1,67 @@
+
+/*
+  Aaron Foltz
+  Homework 5
+	A family tree
+*/
+
+male(george).
+male(dave).
+male(rich).
+male(ken).
+male(peter).
+
+male(sam).
+male(aaron).
+male(claude).
+male(jimmy).
+
+female(leona).
+female(evelyn).
+female(mae).
+female(sherrie).
+
+female(vivienne).
+female(karen).
+female(linda).
+female(tammy).
+
+		/* mother(X,Y) means X is the mother of Y */
+mother(mae, leona).
+mother(leona, ken).	
+mother(leona, evelyn).	
+mother(leona, rich).	
+mother(leona, dave).	
+
+mother(karen, vivienne).
+mother(linda, aaron).
+mother(tammy, sam).
+
+
+		/* father(X,Y) means X is the father of Y */
+father(george, peter).
+father(peter, ken).
+father(peter, rich).
+father(peter, evelyn).
+father(peter, dave).
+
+father(claude, vivienne).
+father(jimmy, aaron).
+
+		/* parent(X,Y) means X is the parent of Y */
+parent(X,Y) :- mother(X,Y) ; father(X,Y).
+
+		/* brother(X,Y) means X is the brother of Y */
+brother(X,Y) :-		/* if			*/
+	male(X),	/* X is male and	*/
+	parent(P,X),	/* X has a parent P and	*/
+	parent(P,Y),	/* Y has the same parent and */
+	X \== Y.	/* X and Y are not the same person */
+
+		/* sister(X,Y) means X is the sister of Y */
+sister(X,Y) :-		/* if			*/
+	female(X),	/* X is female and	*/
+	parent(P,X),	/* X has a parent P and	*/
+	parent(P,Y),	/* Y has the same parent and */
+	X \== Y.	/* X and Y are not the same person */
+

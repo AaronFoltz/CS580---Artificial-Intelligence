@@ -1,0 +1,33 @@
+/*
+   perm_gen:  the body of the permutation generator
+
+	- invoked via the query:? perm_gen.
+
+*/
+
+
+symbol(X) :- member(X, [wash_dc, detroit, atlanta]).
+
+perm([H | []]) :- symbol(H).
+
+perm([H | T]) :-
+	perm(T),
+	symbol(H),
+	not(member(H, T)).
+
+
+perm_gen :-
+	nl, write('Generating permutations:'), 
+	nl, fail.
+
+perm_gen :-
+	perm([X,Y,Z]),
+	write('  ('), 
+	write(X), write(' '),
+	write(Y), write(' '),
+	write(Z),
+	write(')'), nl,
+	fail.
+
+perm_gen.
+

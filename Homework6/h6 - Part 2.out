@@ -1,0 +1,59 @@
+Script started on Thu Oct 13 16:32:31 2011
+[?1034hbash-3.2$ swipl
+
+% library(swi_hooks) compiled into pce_swi_hooks 0.00 sec, 3,992 bytes
+
+Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.5)
+
+Copyright (c) 1990-2011 University of Amsterdam, VU Amsterdam
+
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software,
+
+and you are welcome to redistribute it under certain conditions.
+
+Please visit http://www.swi-prolog.org for details.
+
+
+
+For help, use ?- help(Topic). or ?- apropos(Word).
+
+
+
+[?1034h?- consult(perm_gen).
+
+% perm_gen compiled 0.00 sec, 3,072 bytes
+
+true.
+
+
+
+?- perm_gen.
+
+
+
+Generating permutations:
+
+  (atlanta detroit wash_dc)
+
+  (detroit atlanta wash_dc)
+
+  (atlanta wash_dc detroit)
+
+  (wash_dc atlanta detroit)
+
+  (detroit wash_dc atlanta)
+
+  (wash_dc detroit atlanta)
+
+true.
+
+
+
+?- 
+
+% halt
+
+bash-3.2$ exit
+
+
+Script done on Thu Oct 13 16:35:00 2011

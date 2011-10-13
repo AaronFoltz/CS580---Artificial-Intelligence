@@ -1,0 +1,109 @@
+Script started on Tue Oct 11 20:10:58 2011
+[?1034hbash-3.2$ swipl
+
+% library(swi_hooks) compiled into pce_swi_hooks 0.00 sec, 3,992 bytes
+
+Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.5)
+
+Copyright (c) 1990-2011 University of Amsterdam, VU Amsterdam
+
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software,
+
+and you are welcome to redistribute it under certain conditions.
+
+Please visit http://www.swi-prolog.org for details.
+
+
+
+For help, use ?- help(Topic). or ?- apropos(Word).
+
+
+
+[?1034h?- consult(geneology)[C[C[C[C[C[C[C[C[C[C[C.
+
+% geneology compiled 0.00 sec, 7,120 bytes
+
+true.
+
+
+
+?- female(sherrie).
+
+true.
+
+
+
+?- female(vivienne).
+
+true.
+
+
+
+?- male(aaron).
+
+true.
+
+
+
+?- mother(linda,X).
+
+X = aaron.
+
+
+
+?- father(jimmy,Y).
+
+Y = aaron.
+
+
+
+?- mother(karen,X),father(claude,X).
+
+X = vivienne.
+
+
+
+?- mother(leona,X),father(peter,X).
+
+X = ken ;
+
+X = evelyn ;
+
+X = rich ;
+
+X = dave.
+
+
+
+?- female(peter).
+
+false.
+
+
+
+?- mother(karen,aaron).
+
+false.
+
+
+
+?- mother(karen,_).
+
+true.
+
+
+
+?- mother(evelyn,_).
+
+false.
+
+
+
+?- 
+
+% halt
+
+bash-3.2$ exit
+
+
+Script done on Tue Oct 11 20:19:32 2011

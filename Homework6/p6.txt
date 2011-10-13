@@ -1,0 +1,40 @@
+CS 580
+Fall 2011
+De Jong 					Due: October 19, 2011
+
+
+
+			Homework 6
+
+
+You are to continue getting comfortable with Prolog.
+
+Part 1:  Extend your family genealogy program that you submitted for HW#5 to include grandparent relationships as follows:
+ - add any necessary father/mother facts.
+ - add 3 new Horn clauses of the form:
+	/* grandparent(X,Y) means X is the grandparent of Y *?
+	grandparent(X,Y) :- grandfather(X,Y); grandmother(X,Y).
+
+	/* grandfather(X,Y) means X is the grandfather of Y */
+	grandfather(X,Y) :- /* for you to complete */
+
+	/* grandmother(X,Y) means X is the grandmother of Y */
+	grandmother(X,Y) :- /* for you to complete */
+
+Then, exercise your program as before, showing correct responses to queries involving the new relationships.  Capture the output in a file and include it along with your revised program as part 1 of what you hand in.
+
+Part 2:  Prolog interpreters vary in terms of what is part of the base language loaded on startup and what needs to be explicitly loaded from libraries (like Java "include").  In anticipation of solving logic puzzles in Prolog, you will need standard list processing elements and an explicit form of "not".  Test your Prolog interpreter by downloading perm_gen from the class FTP site and trying to run it.  If it works, just capture the output and include it in your submission.  If not, download perm_top which illustrates how to include library routines for the Quintus Prolog system installed on the Mason server.  Use it to get perm_gen working and capture the output.
+
+You are to hand in the following report via email to tsaha@masonlive.gmu.edu:
+    - the subject field of the email should read:  CS580 HW#6 De Jong
+    - the content of the email should be:
+        - your name
+        - CS580 Fall 2011
+        - De Jong
+        - Homework #6
+               (A brief report summarizing exactly where you are:
+                what works, doesn't work, problems, etc.)
+     - include the following attachments:
+  	- Prolog source and output for part 1.
+	- Prolog output for part 2.
+

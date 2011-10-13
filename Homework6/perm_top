@@ -1,0 +1,17 @@
+/*
+    perm_top: Standard top level control which:
+		- loads required libraries
+		- loads and invokes the problem solver
+*/
+
+
+perms :-
+	consult(library(not)),
+	consult(library(basics)),
+	consult(library(lists)),
+	consult(perm_gen),
+	perm_gen.
+
+
+
+

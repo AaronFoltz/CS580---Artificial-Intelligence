@@ -1,0 +1,83 @@
+
+/*
+  Aaron Foltz
+  Homework 6
+	A family tree
+*/
+
+male(george).
+male(dave).
+male(rich).
+male(ken).
+male(peter).
+
+male(sam).
+male(aaron).
+male(claude).
+male(jimmy).
+male(warren).
+male(paul).
+
+female(leona).
+female(evelyn).
+female(mae).
+female(sherrie).
+
+female(vivienne).
+female(sylvia).
+female(karen).
+female(linda).
+female(tammy).
+female(ardella).
+
+		/* mother(X,Y) means X is the mother of Y */
+mother(mae, leona).
+mother(leona, ken).	
+mother(leona, evelyn).	
+mother(leona, rich).	
+mother(leona, dave).	
+
+mother(karen, vivienne).
+mother(sylvia, linda).
+mother(linda, aaron).
+mother(tammy, sam).
+mother(ardella, jimmy).
+
+
+		/* father(X,Y) means X is the father of Y */
+father(george, peter).
+father(peter, ken).
+father(peter, rich).
+father(peter, evelyn).
+father(peter, dave).
+
+father(claude, vivienne).
+father(warren, linda).
+father(paul, jimmy).
+father(jimmy, aaron).
+
+		/* parent(X,Y) means X is the parent of Y */
+parent(X,Y) :- mother(X,Y) ; father(X,Y).
+
+		/* brother(X,Y) means X is the brother of Y */
+brother(X,Y) :-		/* if			*/
+	male(X),	/* X is male and	*/
+	parent(P,X),	/* X has a parent P and	*/
+	parent(P,Y),	/* Y has the same parent and */
+	X \== Y.	/* X and Y are not the same person */
+
+		/* sister(X,Y) means X is the sister of Y */
+sister(X,Y) :-		/* if			*/
+	female(X),	/* X is female and	*/
+	parent(P,X),	/* X has a parent P and	*/
+	parent(P,Y),	/* Y has the same parent and */
+	X \== Y.	/* X and Y are not the same person */
+	
+/* grandparent(X,Y) means X is the grandparent of Y */
+grandparent(X,Y) :- grandfather(X,Y); grandmother(X,Y).
+
+/* grandfather(X,Y) means X is the grandfather of Y */
+grandfather(X,Y) :- (father(X,Z),father(Z,Y)); (father(X,Z),mother(Z,Y)).
+
+/* grandmother(X,Y) means X is the grandmother of Y */
+grandmother(X,Y) :- (mother(X,Z),father(Z,Y)); (mother(X,Z),mother(Z,Y)).

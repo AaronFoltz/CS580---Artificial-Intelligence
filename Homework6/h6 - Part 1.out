@@ -1,0 +1,110 @@
+Script started on Thu Oct 13 16:18:19 2011
+bash-3.2$ swipl
+
+% library(swi_hooks) compiled into pce_swi_hooks 0.00 sec, 3,992 bytes
+
+Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.5)
+
+Copyright (c) 1990-2011 University of Amsterdam, VU Amsterdam
+
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software,
+
+and you are welcome to redistribute it under certain conditions.
+
+Please visit http://www.swi-prolog.org for details.
+
+
+
+For help, use ?- help(Topic). or ?- apropos(Word).
+
+
+?- consult(geneology).
+
+% geneology compiled 0.00 sec, 9,520 bytes
+
+true.
+
+
+
+?- grandfather(paul,X).
+
+X = aaron ;
+
+false.
+
+
+
+?- grandmother(ardella,X).
+
+X = aaron ;
+
+false.
+
+
+
+?- grandfather(paul,sam).
+
+false.
+
+
+
+?- grandparent(mae,X).
+
+X = ken ;
+
+X = evelyn ;
+
+X = rich ;
+
+X = dave.
+
+
+
+?- grandmother(sylvia,vivienne).
+
+false.
+
+
+
+?- grandmother(sylvia,_).
+
+true.
+
+
+
+?- grandmother(sylvia,X).
+
+X = aaron.
+
+
+
+?- grandparent(warren,X).
+
+X = aaron ;
+
+false.
+
+
+
+?- grandfather(george,X).
+
+X = ken ;
+
+X = rich ;
+
+X = evelyn ;
+
+X = dave ;
+
+false.
+
+
+
+?- 
+
+% halt
+
+bash-3.2$ exit
+
+
+Script done on Thu Oct 13 16:23:57 2011

@@ -1,0 +1,57 @@
+CS 580									Due: October 12, 2011
+Fall 2011
+De Jong						HW #5
+
+You are to become familiar with the Prolog logic programming language via a simple "logistics" exercise.  You are to download from the class FTP site the file geneology.  You are to load and "exercise" this code using the version of Prolog on Mason or a version of Prolog you have downloaded and installed on your own machine.
+
+Most versions of Prolog are command-line oriented.  So, a typical Prolog session session is something like:
+
+      > prolog
+	Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 5.10.4)
+	Copyright (c) 1990-2011 University of Amsterdam, VU Amsterdam
+	SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software,
+	and you are welcome to redistribute it under certain conditions.
+	Please visit http://www.swi-prolog.org for details.
+
+	For help, use ?- help(Topic). or ?- apropos(Word).
+
+	?- consult(geneology).
+	% geneology compiled 0.00 sec, 8,576 bytes
+	true.
+
+	?- female(leona).
+	true.
+
+	?- female(sherrie).
+	false.
+
+	?- mother(leona,X).
+	X = ken ;
+	X = evelyn ;
+	X = rich ;
+	X = dave.
+
+	?-  		(control-D terminates the session on most Unix-based systems)
+	% halt
+      >
+
+Requirements:
+
+1. You are to capture the output of a Prolog session in which you successfully load and exercise a modified version of geneology.  Your modifications should include fixing the "femaile" typo and adding a few more people to the knowledge base.   Load your modified version and exercise it in a way that illustrates: 1) your changes, 2) the use of both constants (e.g., ruth) and variables (anything that starts with a capital letter, e.g, X), and 3) obtaining multiple answers (proofs) by typing ";" responses.
+
+2. You are to hand in the following report via email to tsaha@masonlive.gmu.edu:
+    - the subject field of the email should read:  CS580 HW#5 De Jong
+    - the content of the email should be:
+        - your name
+        - CS580 Fall 2011
+        - De Jong
+        - Homework #5
+               (A brief report summarizing exactly where you are:
+                what works, doesn't work, problems, etc.)
+    - attach to this message the output from your Prolog session.
+
+
+Downloadable Prolog Systems:
+
+The commercial version of Quintus Prolog is installed on Mason.  Quintus used to have a downloadable student version.  But I couldn't find it on their current web site.  There are several good "freeware" versions.  The one I prefer is SWI-Prolog (http://www.swi-prolog.org) which runs on most platforms.  Other folks have used GNU Prolog (http://www.gprolog.org) with no difficulty.
+
